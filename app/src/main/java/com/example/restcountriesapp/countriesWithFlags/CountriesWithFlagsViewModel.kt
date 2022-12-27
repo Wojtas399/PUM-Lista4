@@ -1,4 +1,4 @@
-package com.example.restcountriesapp.countriesAndCapitals
+package com.example.restcountriesapp.countriesWithFlags
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,29 +9,29 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-data class CountryWithCapital(
+data class CountryWithFlag(
   val country: String,
-  val capital: String,
+  val flag: String,
 )
 
-data class CountriesAndCapitalsState(
-  val countriesWithCapitals: List<CountryWithCapital>? = null,
+data class CountriesWithFlagsState(
+  val countriesWithFlags: List<CountryWithFlag>? = null,
 )
 
 @HiltViewModel
-class CountriesAndCapitalsViewModel @Inject constructor(
-  private val getAllCountriesUseCase: GetAllCountriesUseCase,
+class CountriesWithFlagsViewModel @Inject constructor(
+  private val getAllCountriesUseCase: GetAllCountriesUseCase
 ) : ViewModel() {
-  private val _state = MutableStateFlow(CountriesAndCapitalsState())
+  private val _state = MutableStateFlow(CountriesWithFlagsState())
 
-  val state: StateFlow<CountriesAndCapitalsState> = _state.asStateFlow()
+  val state: StateFlow<CountriesWithFlagsState> = _state.asStateFlow()
 
   init {
     viewModelScope.launch {
       getAllCountriesUseCase().collect { countries ->
         _state.update { currentState ->
           currentState.copy(
-            countriesWithCapitals = countries.map { mapCountry(it) }
+            countriesWithFlags = countries.map { mapCountry(it) }
               .sortedBy { it.country }
           )
         }
@@ -39,10 +39,10 @@ class CountriesAndCapitalsViewModel @Inject constructor(
     }
   }
 
-  private fun mapCountry(country: Country): CountryWithCapital {
-    return CountryWithCapital(
+  private fun mapCountry(country: Country): CountryWithFlag {
+    return CountryWithFlag(
       country = country.name,
-      capital = country.capital,
+      flag = country.flag,
     )
   }
 }

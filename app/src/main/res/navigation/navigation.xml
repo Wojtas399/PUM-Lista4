@@ -11,8 +11,8 @@
         android:label="fragment_countries_and_capitals"
         tools:layout="@layout/fragment_countries_and_capitals" />
     <fragment
-        android:id="@+id/countriesAndFlags"
-        android:name="com.example.restcountriesapp.countriesAndFlags.CountriesAndFlags"
-        android:label="fragment_countries_and_flags"
-        tools:layout="@layout/fragment_countries_and_flags" />
+        android:id="@+id/countriesWithFlags"
+        android:name="com.example.restcountriesapp.countriesWithFlags.CountriesWithFlags"
+        android:label="fragment_countries_with_flags"
+        tools:layout="@layout/fragment_countries_with_flags" />
 </navigation>

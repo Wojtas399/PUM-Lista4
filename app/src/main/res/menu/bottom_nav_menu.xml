@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="STOLICE" />
     <item
-        android:id="@id/countriesAndFlags"
+        android:id="@id/countriesWithFlags"
         android:icon="@drawable/ic_baseline_flag_24"
         android:title="FLAGI" />
 </menu>
