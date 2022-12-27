@@ -1,4 +1,4 @@
-package com.example.restcountriesapp.countriesAndCapitals
+package com.example.restcountriesapp.countriesWithCapitals
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,21 +10,21 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restcountriesapp.databinding.FragmentCountriesAndCapitalsBinding
+import com.example.restcountriesapp.databinding.FragmentCountriesWithCapitalsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CountriesAndCapitals : Fragment() {
-  private lateinit var binding: FragmentCountriesAndCapitalsBinding
-  private val viewModel: CountriesAndCapitalsViewModel by viewModels()
+class CountriesWithCapitals : Fragment() {
+  private lateinit var binding: FragmentCountriesWithCapitalsBinding
+  private val viewModel: CountriesWithCapitalsViewModel by viewModels()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding =
-      FragmentCountriesAndCapitalsBinding.inflate(inflater, container, false)
+      FragmentCountriesWithCapitalsBinding.inflate(inflater, container, false)
 
     collectViewModel()
 
@@ -39,13 +39,13 @@ class CountriesAndCapitals : Fragment() {
     }
   }
 
-  private fun setContent(state: CountriesAndCapitalsState) {
+  private fun setContent(state: CountriesWithCapitalsState) {
     state.countriesWithCapitals?.let { setRecyclerView(it) }
   }
 
   private fun setRecyclerView(countriesWithCapitals: List<CountryWithCapital>) {
     binding.recyclerView.apply {
-      adapter = CountriesAndCapitalsAdapter(countriesWithCapitals)
+      adapter = CountriesWithCapitalsAdapter(countriesWithCapitals)
       layoutManager = LinearLayoutManager(requireContext())
     }
   }

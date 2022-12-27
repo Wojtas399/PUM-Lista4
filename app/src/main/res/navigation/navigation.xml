@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/countriesAndCapitals">
+    app:startDestination="@id/countriesWithCapitals">
 
     <fragment
-        android:id="@+id/countriesAndCapitals"
-        android:name="com.example.restcountriesapp.countriesAndCapitals.CountriesAndCapitals"
-        android:label="fragment_countries_and_capitals"
-        tools:layout="@layout/fragment_countries_and_capitals" />
+        android:id="@+id/countriesWithCapitals"
+        android:name="com.example.restcountriesapp.countriesWithCapitals.CountriesWithCapitals"
+        android:label="fragment_countries_with_capitals"
+        tools:layout="@layout/fragment_countries_with_capitals" />
     <fragment
         android:id="@+id/countriesWithFlags"
         android:name="com.example.restcountriesapp.countriesWithFlags.CountriesWithFlags"

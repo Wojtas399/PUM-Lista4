@@ -1,4 +1,4 @@
-package com.example.restcountriesapp.countriesAndCapitals
+package com.example.restcountriesapp.countriesWithCapitals
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +7,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restcountriesapp.R
 
-class CountriesAndCapitalsAdapter(
+class CountriesWithCapitalsAdapter(
   private val countriesWithCapitals: List<CountryWithCapital>
 ) :
-  RecyclerView.Adapter<CountriesAndCapitalsAdapter.CountriesAndCapitalsViewHolder>() {
+  RecyclerView.Adapter<CountriesWithCapitalsAdapter.CountriesWithCapitalsViewHolder>() {
   override fun getItemCount(): Int = countriesWithCapitals.size
 
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
-  ): CountriesAndCapitalsViewHolder {
-    return CountriesAndCapitalsViewHolder(
+  ): CountriesWithCapitalsViewHolder {
+    return CountriesWithCapitalsViewHolder(
       LayoutInflater.from(parent.context).inflate(
         R.layout.country_capital_item,
         parent,
@@ -27,14 +27,14 @@ class CountriesAndCapitalsAdapter(
   }
 
   override fun onBindViewHolder(
-    holder: CountriesAndCapitalsViewHolder,
+    holder: CountriesWithCapitalsViewHolder,
     position: Int
   ) {
     val countryWithCapital: CountryWithCapital = countriesWithCapitals[position]
     holder.bind(countryWithCapital)
   }
 
-  inner class CountriesAndCapitalsViewHolder(view: View) :
+  inner class CountriesWithCapitalsViewHolder(view: View) :
     RecyclerView.ViewHolder(view) {
     private val countryTextView: TextView =
       view.findViewById(R.id.caCountryName)

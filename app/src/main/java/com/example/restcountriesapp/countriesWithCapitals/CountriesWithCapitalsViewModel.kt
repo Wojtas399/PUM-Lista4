@@ -1,4 +1,4 @@
-package com.example.restcountriesapp.countriesAndCapitals
+package com.example.restcountriesapp.countriesWithCapitals
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,17 +14,17 @@ data class CountryWithCapital(
   val capital: String,
 )
 
-data class CountriesAndCapitalsState(
+data class CountriesWithCapitalsState(
   val countriesWithCapitals: List<CountryWithCapital>? = null,
 )
 
 @HiltViewModel
-class CountriesAndCapitalsViewModel @Inject constructor(
+class CountriesWithCapitalsViewModel @Inject constructor(
   private val getAllCountriesUseCase: GetAllCountriesUseCase,
 ) : ViewModel() {
-  private val _state = MutableStateFlow(CountriesAndCapitalsState())
+  private val _state = MutableStateFlow(CountriesWithCapitalsState())
 
-  val state: StateFlow<CountriesAndCapitalsState> = _state.asStateFlow()
+  val state: StateFlow<CountriesWithCapitalsState> = _state.asStateFlow()
 
   init {
     viewModelScope.launch {
