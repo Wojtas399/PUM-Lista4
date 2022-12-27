@@ -1,37 +1,21 @@
 package com.example.restcountriesapp.data
 
+import com.example.restcountriesapp.data.api.CountryApi
+import com.example.restcountriesapp.data.api.ApiCountry
 import com.example.restcountriesapp.domain.Country
 import com.example.restcountriesapp.domain.CountryRepository
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class CountryRepositoryImpl : CountryRepository {
-  override fun getAllCountries(): Flow<List<Country>> {
-    return flow {
-      emit(
-        listOf(
-          Country(
-            name = "Country 1",
-            capital = "Capital 1",
-            flag = "🏳🇦🇹",
-          ),
-          Country(
-            name = "Country 2",
-            capital = "Capital 2",
-            flag = "🏳️‍⚧️",
-          ),
-          Country(
-            name = "Country 3",
-            capital = "Capital 3",
-            flag = "🇨🇬",
-          ),
-          Country(
-            name = "Country 4",
-            capital = "Capital 4",
-            flag = "🇨🇳",
-          ),
-        ),
-      )
-    }
-  }
+class CountryRepositoryImpl @Inject constructor(
+  private val countryApi: CountryApi,
+) : CountryRepository {
+  override suspend fun getAllCountries(): List<Country> =
+    countryApi.getAllCountries().map { mapApiCountryToDomainCountry(it) }
+
+  private fun mapApiCountryToDomainCountry(apiCountry: ApiCountry): Country =
+    Country(
+      name = apiCountry.name.official,
+      capital = apiCountry.capital?.first() ?: "unknown",
+      flag = apiCountry.flag,
+    )
 }

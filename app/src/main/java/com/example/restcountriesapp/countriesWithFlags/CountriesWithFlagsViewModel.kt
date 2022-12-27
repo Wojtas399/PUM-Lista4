@@ -28,13 +28,12 @@ class CountriesWithFlagsViewModel @Inject constructor(
 
   init {
     viewModelScope.launch {
-      getAllCountriesUseCase().collect { countries ->
-        _state.update { currentState ->
-          currentState.copy(
-            countriesWithFlags = countries.map { mapCountry(it) }
-              .sortedBy { it.country }
-          )
-        }
+      val countries: List<Country> = getAllCountriesUseCase()
+      _state.update { currentState ->
+        currentState.copy(
+          countriesWithFlags = countries.map { mapCountry(it) }
+            .sortedBy { it.country }
+        )
       }
     }
   }
