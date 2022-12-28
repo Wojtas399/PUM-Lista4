@@ -5,49 +5,22 @@
     android:layout_marginBottom="16dp"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/caCountryName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginEnd="16dp"
+        android:text="Polska"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="Państwo:"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/caCountryName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Polska"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/caCapitalName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Stolica:"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/caCapitalName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Warszawa"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:text="Warszawa"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
